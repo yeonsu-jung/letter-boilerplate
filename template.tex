@@ -9,15 +9,25 @@
 \usepackage{geometry}
 \geometry{$geometry$}
 
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{0ex}{0ex}
+\titlespacing{\subsection}{0pt}{0ex}{0ex}
+
+\usepackage{multicol}
+%\setlength{\columnsep}{-3.5cm}
+
 % No page numbers
-\pagenumbering{gobble}
+%\pagenumbering{gobble}
+
+% No heading numbers
+\setcounter{secnumdepth}{0}
 
 % Left align
 \usepackage[document]{ragged2e}
 
 % Trim excessive whitespace before lists
 \usepackage{enumitem}
-\setlist{nolistsep}
+%\setlist{nolistsep}
 
 $if(letterhead)$
 \usepackage{wallpaper}
@@ -25,11 +35,45 @@ $if(letterhead)$
 \ULCornerWallPaper{1}{letterhead.pdf}
 $endif$
 
+% HEADER
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Yeonsu Jung}
+\lhead{NRFK Proposal Outline}
+\cfoot{\thepage}
+
 % LANGUAGE
 %--------------------------------
 $if(lang)$
 \usepackage{polyglossia}
 \setmainlanguage{$lang$}
+$endif$
+
+% BIBLIOGRAPHY
+
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[3] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc} % for \widthof, \maxof
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\maxof{\widthof{#1}}{\csllabelwidth}}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth}{#1}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 $endif$
 
 % TYPOGRAPHY
@@ -86,45 +130,42 @@ $endif$
 % DOCUMENT
 %--------------------------------
 \begin{document}
-\small
-\textsc{\textbf{$author$}}
-$for(from)$
-\textbullet{} \textsc{$from$}
-$endfor$
 
-\vspace{1em}
+%\small
+%\textsc{\textbf{$author$}}
+%$for(from)$
+%\textbullet{} \textsc{$from$}
+%$endfor$
 
-\normalsize \sffamily
-$for(to)$
-$to$\\
-$endfor$
+%\vspace{1em}
+
+%\normalsize \sffamily
+%$for(to)$
+%$to$\\
+%$endfor$
+
+%\vspace{3em}
+
+%\rmfamily
+%\begin{flushright}
+%  $city$, $if(customdate)$\DTMusedate{customdate}$else$\today$endif$
+%\end{flushright}
+
+%\vspace{1em}
+
+
+{\LARGE\textbf{$title$}}
+\begin{center}
+  \textsc{$author$}\\
+  $affiliation$\\
+  $email$
+\end{center}
+
+\textbf{Abstract}\\
+$abstract$
 
 \vspace{3em}
 
-\rmfamily
-\begin{flushright}
-  $city$, $if(customdate)$\DTMusedate{customdate}$else$\today$endif$
-\end{flushright}
-
-\vspace{1em}
-
-$if(subject)$
-\textbf{$subject$}
-$endif$
-
-\vspace{1em}
-
 $body$
-
-\begin{FlushRight}
-  \IfFileExists{signature.pdf}
-  {
-    \includegraphics[height=5.5\baselineskip]{signature.pdf} \par
-  }
-  {
-    \vspace{5.5\baselineskip}
-  }
-  $author$
-\end{FlushRight}
 
 \end{document}

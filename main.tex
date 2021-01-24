@@ -1,0 +1,676 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, a4paper]{article}
+\usepackage{fontspec}
+
+% LAYOUT
+%--------------------------------
+\usepackage{geometry}
+\geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
+
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{0ex}{0ex}
+\titlespacing{\subsection}{0pt}{0ex}{0ex}
+
+\usepackage{multicol}
+%\setlength{\columnsep}{-3.5cm}
+
+% No page numbers
+%\pagenumbering{gobble}
+
+% No heading numbers
+\setcounter{secnumdepth}{0}
+
+% Left align
+\usepackage[document]{ragged2e}
+
+% Trim excessive whitespace before lists
+\usepackage{enumitem}
+%\setlist{nolistsep}
+
+
+% HEADER
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Yeonsu Jung}
+\lhead{NRFK Proposal Outline}
+\cfoot{\thepage}
+
+% LANGUAGE
+%--------------------------------
+\usepackage{polyglossia}
+\setmainlanguage{eng-US}
+
+% BIBLIOGRAPHY
+
+
+% TYPOGRAPHY
+%--------------------------------
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage[protrusion=true,final]{microtype}
+
+% converts LaTeX specials (quotes, dashes etc.) to Unicode
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont [Ligatures={Common}, Numbers={OldStyle}]{Helvetica Neue}
+\setsansfont[Scale=0.9]{Helvetica Neue}
+\setmonofont[Scale=0.8]{Courier}
+
+% Set paragraph break
+\setlength{\parskip}{1em}
+
+% Custom ampersand
+\newcommand{\amper}{{\fontspec[Scale=.95]{Helvetica
+Neue}\selectfont\itshape\&}}
+
+    \setmainfont{Helvetica Neue}
+    \setsansfont{Helvetica Neue}
+
+% Command required by how Pandoc handles the list conversion
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% PDF SETUP
+%--------------------------------
+\usepackage[xetex, bookmarks, colorlinks, breaklinks]{hyperref}
+\hypersetup
+{
+  pdfauthor={Yeonsu Jung},
+  pdfsubject={NRF Proposal Outline},
+  pdftitle={NRF Proposal Outline},
+  colorlinks,breaklinks,
+  filecolor=black,
+  urlcolor=[rgb]{0.117,0.682,0.858},
+  linkcolor=[rgb]{0.117,0.682,0.858},
+  linkcolor=[rgb]{0.117,0.682,0.858},
+  citecolor=[rgb]{0.117,0.682,0.858}
+}
+
+% To display custom date in the example
+
+% DOCUMENT
+%--------------------------------
+\begin{document}
+
+%\small
+%\textsc{\textbf{Yeonsu Jung}}
+%
+%\vspace{1em}
+
+%\normalsize \sffamily
+%
+%\vspace{3em}
+
+%\rmfamily
+%\begin{flushright}
+%  , \today
+%\end{flushright}
+
+%\vspace{1em}
+
+
+{\LARGE\textbf{Experimental flow optimization and control of
+bio-inspired robots using machine learning}}
+\begin{center}
+  \textsc{Yeonsu Jung}\\
+  Postdoctoral Fellow, Rowland Institute at Harvard, Cambridge, MA\\
+  yeonsujung@fas.harvard.edu
+\end{center}
+
+\textbf{Abstract}\\
+In this brief proposal outline, we discuss the potential of
+machine-learning-based approaches for the development of flying/swimming
+bio-inspired robots. Three research categories for the overarching
+research objective are suggested so that their combination produces
+promising research outcomes. We overview how machine learning can push
+the boundaries of current bio-inspired robot technology, emphasizing
+experimental optimization and control. Roles of fluid mechanics, both
+experimental and theoretical, are discussed as a crucial avenue to
+understand the underlying mechanisms beyond black-box optimization and
+control.
+
+\vspace{3em}
+
+\hypertarget{background-and-significance}{%
+\subsection{Background and
+significance}\label{background-and-significance}}
+
+\hypertarget{prospects-of-small-scale-soft-robots-inspired-by-bio-locomotion-in-fluid}{%
+\subsubsection{Prospects of small-scale soft robots inspired by
+bio-locomotion in
+fluid}\label{prospects-of-small-scale-soft-robots-inspired-by-bio-locomotion-in-fluid}}
+
+\begin{itemize}
+\item
+  Recent advances in small-scale soft robots capable of flying,
+  swimming, or both, hold great promise for future applications such as
+  search-and-rescue and atmospheric/underwater monitoring
+  \citep[\citet{Aubin2019},\citet{Chen2017}]{Jafferis2019}.
+\item
+  Small scale advantages: Its small size enables impossible tasks for
+  existing larger-scale robots.
+\item
+  Maneuverability: As seen in insect flying and small fish swimming,
+  small-scale robots are capable of agile motions.
+\item
+  Safety: Due to their small size and soft materials characteristics,
+  bio-inspired robots are generally human-friendly.
+\item
+  However, many existing bio-inspired robots still need improvement in
+  controllability and/or energy efficiency for real-world applications.
+\end{itemize}
+
+\hypertarget{prospects-of-machine-learning-for-small-scale-soft-robot-development}{%
+\subsubsection{Prospects of machine learning for small-scale soft robot
+development}\label{prospects-of-machine-learning-for-small-scale-soft-robot-development}}
+
+\begin{itemize}
+\tightlist
+\item
+  Fruit fly brain consists of only \textasciitilde150,000 neurons, while
+  the mouse (70 million) or human (86 billion) have much more extensive
+  and complicated central nervous system \citep{Webb2020}. But this
+  frugal dynamic control system successfully achieve locomotion,
+  directed actions, and other complex response to complex environmental
+  disturbances. To stay aloft, small flying insects must make constant
+  adjustments to their wing motion at a timescale of only a few
+  milliseconds, pushing the limits of both biomechanics and neural
+  response \citep{Cohen2019}.
+\item
+  This inspiration from animal flying and swimming implies that current
+  bio-inspired robots can benefit from kinematics optimization and more
+  accurate and faster control using machine learning algorithms, which
+  actually have been invented inspired by biological neural systems.
+\item
+  Recent advances and expansion in machine learning for flow dynamic
+  systems are expected to provide bio-inspired robots with a significant
+  opportunity toward next-level optimization and control.
+\end{itemize}
+
+\hypertarget{opportunities}{%
+\subsubsection{Opportunities}\label{opportunities}}
+
+\begin{itemize}
+\item
+  Advanced technology in soft robotics and fluid mechanics systems can
+  result in robotic systems interacting with complex flow environments
+  using state-of-the-art machine learning algorithms. The followings are
+  potential advantages of machine-learning-based optimization and
+  control for soft flying/swimming robots.
+\item
+  \begin{itemize}
+  \tightlist
+  \item
+    Superior maneuverability
+  \item
+    Fast and accurate controllability
+  \item
+    Superior energy efficiency
+  \item
+    Autonomous operation
+  \end{itemize}
+\item
+  A combined experimental-algorithmic approach is desired for the
+  machine to learn from complex ``real-world'' interactions between
+  aero/hydrodynamic environments and the robotic bodies in motion.
+\item
+  Fluid dynamics study, including flow visualization and mechanics
+  modeling, is essential to interpret optimization and control results
+  by machine learning algorithms. Understanding of the underlying
+  mechanisms, in turn, should be able to improve the algorithms.
+\end{itemize}
+
+\hypertarget{research-objectives}{%
+\subsection{Research Objectives}\label{research-objectives}}
+
+\hypertarget{research-categories}{%
+\subsubsection{Research categories}\label{research-categories}}
+
+\begin{itemize}
+\tightlist
+\item
+  Experimental platform for automated high-throughput data acquisition.
+\item
+  Implementation of machine learning algorithms to optimize and control
+  flow locomotion robots.
+\item
+  Fluid mechanics study for the underlying mechanisms: Flow
+  visualization and modeling.
+\end{itemize}
+
+\hypertarget{specific-aims}{%
+\subsubsection{Specific aims}\label{specific-aims}}
+
+\begin{itemize}
+\item
+  Design and implementation of the automated experiment system
+\item
+  \begin{itemize}
+  \tightlist
+  \item
+    Design and manufacturing of robots inspired by bio-locomotion in
+    fluid (flying and/or swimming)
+  \end{itemize}
+\item
+  Design and construction of aero/hydrodynamic platform for automated
+  experiment
+\item
+  \begin{itemize}
+  \item
+    \begin{itemize}
+    \tightlist
+    \item
+      Force, torque, and position measurement systems
+    \item
+      Flow control (as an exogenous disturbance): velocity, turbulence
+      intensity, wave effects, and others.
+    \end{itemize}
+  \item
+    For state, parameter, and reward update in machine learning
+    algorithms
+  \end{itemize}
+\item
+  Machine learning algorithms implementation
+\item
+  Algorithm assessment, selection, and adaptation/modification
+\item
+  \begin{itemize}
+  \item
+    \begin{itemize}
+    \tightlist
+    \item
+      Stochastic optimization: Covariant Matrix Adaptation,
+    \item
+      Semisupervised: Reinforcement Learning, Generative Adversarial
+      Network
+    \end{itemize}
+  \item
+    Supervised: Neural Networks
+  \item
+    Estimating computing costs
+  \end{itemize}
+\item
+  Flow visualization and image processing for quantitative information
+  acquisition
+\item
+  \begin{itemize}
+  \tightlist
+  \item
+    The main reason for flow visualization is to understand underlying
+    mechanisms and interpret results.
+  \item
+    Particle Image Velocimetry and/or Particle Tracking Velocimetry for
+    quantitative flow field measurement.
+  \item
+    Streakline and/or pathline visualization for qualitative assessment
+    of flows.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{impact}{%
+\subsection{Impact}\label{impact}}
+
+\begin{itemize}
+\tightlist
+\item
+  Development of flow optimization and control for complex bio-inspired
+  robotic locomotion in fluids.
+\item
+  Adaptation, modification, and improvement of machine learning
+  algorithms for robotic locomotion in fluids.
+\item
+  Fluid mechanics experiment and modeling of machine-learning-based
+  locomotion in fluids.
+\end{itemize}
+
+\hypertarget{why-machine-learning}{%
+\subsection{Why machine learning}\label{why-machine-learning}}
+
+\begin{itemize}
+\tightlist
+\item
+  Conventional optimal control approaches, including Dynamic Programming
+  and Linear Quadrant Regulator, require physics-based models of the
+  interactions between the control system and the environment.
+\item
+  Machine learning algorithms can handle a black-box problem by sampling
+  parameters at each instance without precise knowledge of the dynamics.
+  Besides, machine learning algorithms are known to be relatively
+  insensitive to the noisy and stochastic environment.
+\item
+  Machine learning algorithms may require higher computational costs,
+  but they are becoming a valid and reliable tool for fluid optimization
+  and control as computational capabilities are increasingly fast and
+  robust. In the foreseeable future, objective-specific computing units
+  such as a neuromorphic computing device are expected to emerge. They
+  might enable faster and reliable optimization and control for fluid
+  dynamics systems.
+\end{itemize}
+
+\hypertarget{advantages-of-experimental-optimization-and-control}{%
+\subsection{Advantages of experimental optimization and
+control}\label{advantages-of-experimental-optimization-and-control}}
+
+\begin{itemize}
+\tightlist
+\item
+  In this research, an entire sampling process of parameters will be
+  performed ``experimentally''. A network of sensors that consists of
+  force, torque, position, and other sensors will monitor the control
+  system and environment information to feed machine learning
+  algorithms.
+\item
+  There is a vast amount of previous works on optimal searches for both
+  flying and swimming. However, optimal searches in previous results
+  have mainly resorted to computation due to their ease of automation.
+  Still, they often require a simplistic model for the complex flow
+  physics to ensure convergence in a reasonable time frame
+  \citep{Martin2018}.
+\item
+  Experimental optimization has the advantage that the complex flow
+  physics are reserved, and that sampling processes are faster. But the
+  drawbacks are inevitable mechanical constraints and challenges in
+  experiment automation. Despite the drawbacks, it has been shown that
+  flow optimization and control for fluid dynamic systems using machine
+  learning algorithms can be applied in experimental settings
+  \citep[\citet{Martin2018},\citet{Ramananarivo2019}]{Strom2017}.
+\end{itemize}
+
+\hypertarget{role-of-fluid-mechanics}{%
+\subsection{Role of fluid mechanics}\label{role-of-fluid-mechanics}}
+
+\begin{itemize}
+\tightlist
+\item
+  The biggest pitfall of machine-learning-based approaches might be the
+  lack of interpretability. In this research, fluid mechanics experiment
+  and modeling are accompanied by the black-box optimal searches using
+  machine learning. This fundamental study can provide a satisfactory
+  explanation of the underlying mechanisms.
+\item
+  Fluid mechanics study, in turn, should be critical for the
+  implementation of machine learning algorithms. Based on fluid
+  mechanics knowledge, parameters associated with the control systems,
+  the environment, and the interaction between them can be properly
+  chosen.
+\end{itemize}
+
+\hypertarget{background-and-significance-1}{%
+\subsection{Background and
+significance}\label{background-and-significance-1}}
+
+\hypertarget{prospects-of-small-scale-soft-robots-inspired-by-bio-locomotion-in-fluid-1}{%
+\subsubsection{Prospects of small-scale soft robots inspired by
+bio-locomotion in
+fluid}\label{prospects-of-small-scale-soft-robots-inspired-by-bio-locomotion-in-fluid-1}}
+
+\begin{itemize}
+\item
+  Recent advances in small-scale soft robots capable of flying,
+  swimming, or both, hold great promise for future applications such as
+  search-and-rescue and atmospheric/underwater monitoring
+  \citep[\citet{Aubin2019},\citet{Chen2017}]{Jafferis2019}.
+\item
+  Small scale advantages: Its small size enables impossible tasks for
+  existing larger-scale robots.
+\item
+  Maneuverability: As seen in insect flying and small fish swimming,
+  small-scale robots are capable of agile motions.
+\item
+  Safety: Due to their small size and soft materials characteristics,
+  bio-inspired robots are generally human-friendly.
+\item
+  However, many existing bio-inspired robots still need improvement in
+  controllability and/or energy efficiency for real-world applications.
+\end{itemize}
+
+\hypertarget{prospects-of-machine-learning-for-small-scale-soft-robot-development-1}{%
+\subsubsection{Prospects of machine learning for small-scale soft robot
+development}\label{prospects-of-machine-learning-for-small-scale-soft-robot-development-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  Fruit fly brain consists of only \textasciitilde150,000 neurons, while
+  the mouse (70 million) or human (86 billion) have much more extensive
+  and complicated central nervous system \citep{Webb2020}. But this
+  frugal dynamic control system successfully achieve locomotion,
+  directed actions, and other complex response to complex environmental
+  disturbances. To stay aloft, small flying insects must make constant
+  adjustments to their wing motion at a timescale of only a few
+  milliseconds, pushing the limits of both biomechanics and neural
+  response \citep{Cohen2019}.
+\item
+  This inspiration from animal flying and swimming implies that current
+  bio-inspired robots can benefit from kinematics optimization and more
+  accurate and faster control using machine learning algorithms, which
+  actually have been invented inspired by biological neural systems.
+\item
+  Recent advances and expansion in machine learning for flow dynamic
+  systems are expected to provide bio-inspired robots with a significant
+  opportunity toward next-level optimization and control.
+\end{itemize}
+
+\hypertarget{opportunities-1}{%
+\subsubsection{Opportunities}\label{opportunities-1}}
+
+\begin{itemize}
+\item
+  Advanced technology in soft robotics and fluid mechanics systems can
+  result in robotic systems interacting with complex flow environments
+  using state-of-the-art machine learning algorithms. The followings are
+  potential advantages of machine-learning-based optimization and
+  control for soft flying/swimming robots.
+\item
+  \begin{itemize}
+  \tightlist
+  \item
+    Superior maneuverability
+  \item
+    Fast and accurate controllability
+  \item
+    Superior energy efficiency
+  \item
+    Autonomous operation
+  \end{itemize}
+\item
+  A combined experimental-algorithmic approach is desired for the
+  machine to learn from complex ``real-world'' interactions between
+  aero/hydrodynamic environments and the robotic bodies in motion.
+\item
+  Fluid dynamics study, including flow visualization and mechanics
+  modeling, is essential to interpret optimization and control results
+  by machine learning algorithms. Understanding of the underlying
+  mechanisms, in turn, should be able to improve the algorithms.
+\end{itemize}
+
+\hypertarget{research-objectives-1}{%
+\subsection{Research Objectives}\label{research-objectives-1}}
+
+\hypertarget{research-categories-1}{%
+\subsubsection{Research categories}\label{research-categories-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  Experimental platform for automated high-throughput data acquisition.
+\item
+  Implementation of machine learning algorithms to optimize and control
+  flow locomotion robots.
+\item
+  Fluid mechanics study for the underlying mechanisms: Flow
+  visualization and modeling.
+\end{itemize}
+
+\hypertarget{specific-aims-1}{%
+\subsubsection{Specific aims}\label{specific-aims-1}}
+
+\begin{itemize}
+\item
+  Design and implementation of the automated experiment system
+\item
+  \begin{itemize}
+  \tightlist
+  \item
+    Design and manufacturing of robots inspired by bio-locomotion in
+    fluid (flying and/or swimming)
+  \end{itemize}
+\item
+  Design and construction of aero/hydrodynamic platform for automated
+  experiment
+\item
+  \begin{itemize}
+  \item
+    \begin{itemize}
+    \tightlist
+    \item
+      Force, torque, and position measurement systems
+    \item
+      Flow control (as an exogenous disturbance): velocity, turbulence
+      intensity, wave effects, and others.
+    \end{itemize}
+  \item
+    For state, parameter, and reward update in machine learning
+    algorithms
+  \end{itemize}
+\item
+  Machine learning algorithms implementation
+\item
+  Algorithm assessment, selection, and adaptation/modification
+\item
+  \begin{itemize}
+  \item
+    \begin{itemize}
+    \tightlist
+    \item
+      Stochastic optimization: Covariant Matrix Adaptation,
+    \item
+      Semisupervised: Reinforcement Learning, Generative Adversarial
+      Network
+    \end{itemize}
+  \item
+    Supervised: Neural Networks
+  \item
+    Estimating computing costs
+  \end{itemize}
+\item
+  Flow visualization and image processing for quantitative information
+  acquisition
+\item
+  \begin{itemize}
+  \tightlist
+  \item
+    The main reason for flow visualization is to understand underlying
+    mechanisms and interpret results.
+  \item
+    Particle Image Velocimetry and/or Particle Tracking Velocimetry for
+    quantitative flow field measurement.
+  \item
+    Streakline and/or pathline visualization for qualitative assessment
+    of flows.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{impact-1}{%
+\subsection{Impact}\label{impact-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  Development of flow optimization and control for complex bio-inspired
+  robotic locomotion in fluids.
+\item
+  Adaptation, modification, and improvement of machine learning
+  algorithms for robotic locomotion in fluids.
+\item
+  Fluid mechanics experiment and modeling of machine-learning-based
+  locomotion in fluids.
+\end{itemize}
+
+\hypertarget{why-machine-learning-1}{%
+\subsection{Why machine learning}\label{why-machine-learning-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  Conventional optimal control approaches, including Dynamic Programming
+  and Linear Quadrant Regulator, require physics-based models of the
+  interactions between the control system and the environment.
+\item
+  Machine learning algorithms can handle a black-box problem by sampling
+  parameters at each instance without precise knowledge of the dynamics.
+  Besides, machine learning algorithms are known to be relatively
+  insensitive to the noisy and stochastic environment.
+\item
+  Machine learning algorithms may require higher computational costs,
+  but they are becoming a valid and reliable tool for fluid optimization
+  and control as computational capabilities are increasingly fast and
+  robust. In the foreseeable future, objective-specific computing units
+  such as a neuromorphic computing device are expected to emerge. They
+  might enable faster and reliable optimization and control for fluid
+  dynamics systems.
+\end{itemize}
+
+\hypertarget{advantages-of-experimental-optimization-and-control-1}{%
+\subsection{Advantages of experimental optimization and
+control}\label{advantages-of-experimental-optimization-and-control-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  In this research, an entire sampling process of parameters will be
+  performed ``experimentally''. A network of sensors that consists of
+  force, torque, position, and other sensors will monitor the control
+  system and environment information to feed machine learning
+  algorithms.
+\item
+  There is a vast amount of previous works on optimal searches for both
+  flying and swimming. However, optimal searches in previous results
+  have mainly resorted to computation due to their ease of automation.
+  Still, they often require a simplistic model for the complex flow
+  physics to ensure convergence in a reasonable time frame
+  \citep{Martin2018}.
+\item
+  Experimental optimization has the advantage that the complex flow
+  physics are reserved, and that sampling processes are faster. But the
+  drawbacks are inevitable mechanical constraints and challenges in
+  experiment automation. Despite the drawbacks, it has been shown that
+  flow optimization and control for fluid dynamic systems using machine
+  learning algorithms can be applied in experimental settings
+  \citep[\citet{Martin2018},\citet{Ramananarivo2019}]{Strom2017}.
+\end{itemize}
+
+\hypertarget{role-of-fluid-mechanics-1}{%
+\subsection{Role of fluid mechanics}\label{role-of-fluid-mechanics-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  The biggest pitfall of machine-learning-based approaches might be the
+  lack of interpretability. In this research, fluid mechanics experiment
+  and modeling are accompanied by the black-box optimal searches using
+  machine learning. This fundamental study can provide a satisfactory
+  explanation of the underlying mechanisms.
+\item
+  Fluid mechanics study, in turn, should be critical for the
+  implementation of machine learning algorithms. Based on fluid
+  mechanics knowledge, parameters associated with the control systems,
+  the environment, and the interaction between them can be properly
+  chosen.
+\end{itemize}
+
+%\begin{FlushRight}
+%  \IfFileExists{signature.pdf}
+%  {
+%    \includegraphics[height=5.5\baselineskip]{signature.pdf} \par
+%  }
+%  {
+%    \vspace{5.5\baselineskip}
+%  }
+%  Yeonsu Jung
+%\end{FlushRight}
+
+\end{document}
