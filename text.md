@@ -59,7 +59,7 @@ geometry: a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm
 - Implementation of machine learning algorithms to optimize and control flow locomotion robots.
 - Fluid mechanics study for the underlying mechanisms: Flow visualization and modeling.
 
-### Specific aims
+### Specific aims and methodology
 
 - Design and implementation of the automated experiment system
   - Design and manufacturing of robots inspired by bio-locomotion in fluid (flying and/or swimming)
@@ -99,5 +99,5 @@ geometry: a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm
 
 ## Role of fluid mechanics
 
-- The biggest pitfall of machine-learning-based approaches might be the lack of interpretability. In this research, fluid mechanics experiment and modeling are accompanied by the black-box optimal searches using machine learning. This fundamental study can provide a satisfactory explanation of the underlying mechanisms.
+- A major skepticism on machine-learning-based approaches might be the lack of interpretability. In this research, fluid mechanics experiment and modeling are accompanied by the black-box optimal searches using machine learning. This fundamental study can provide a satisfactory explanation of the underlying mechanisms.
 - Fluid mechanics study, in turn, should be critical for the implementation of machine learning algorithms. Based on fluid mechanics knowledge, parameters associated with the control systems, the environment, and the interaction between them can be properly chosen.
