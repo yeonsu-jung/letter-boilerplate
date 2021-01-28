@@ -38,8 +38,8 @@ geometry: a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm
 ### Prospects of machine learning for small-scale soft robot development
 
 - Fruit fly brain consists of only ~150,000 neurons, while the mouse (70 million) or human (86 billion) have much more extensive and complicated central nervous system[@Webb2020]. But this frugal dynamic control system successfully achieve locomotion, directed actions, and other complex response to complex environmental disturbances. To stay aloft, small flying insects must make constant adjustments to their wing motion at a timescale of only a few milliseconds, pushing the limits of both biomechanics and neural response[@Cohen2019].
-- This inspiration from animal flying and swimming implies that current bio-inspired robots can benefit from kinematics optimization and more accurate and faster control using machine learning algorithms, which actually have been invented inspired by biological neural systems .
-- Recent advances and expansion in machine learning for flow dynamic systems are expected to provide bio-inspired robots with a significant opportunity toward next-level optimization and control.
+- This inspiration from animal flying and swimming implies that current bio-inspired robots can benefit from kinematics optimization and more accurate and faster control using machine learning algorithms, which actually have been invented inspired by biological neural systems.
+- Recent advances in machine learning for flow dynamic systems are expected to provide bio-inspired robots with a significant opportunity toward next-level optimization and control.
 
 ### Opportunities
 
@@ -93,7 +93,7 @@ geometry: a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm
 
 ## Advantages of experimental optimization and control
 
-- In this research, an entire sampling process of parameters will be performed "experimentally". A network of sensors that consists of force, torque, position, and other sensors will monitor the control system and environment information to feed machine learning algorithms.
+- In this research, an entire sampling process of parameters will be performed "experimentally". A network of sensors that consists of force, torque, position, and other sensors will monitor the control system and environment to produce a set of parameters and to feed machine learning algorithms.
 - There is a vast amount of previous works on optimal searches for both flying and swimming. However, optimal searches in previous results have mainly resorted to computation due to their ease of automation. Still, they often require a simplistic model for the complex flow physics to ensure convergence in a reasonable time frame[@Martin2018].
 - Experimental optimization has the advantage that the complex flow physics are reserved, and that sampling processes are faster. But the drawbacks are inevitable mechanical constraints and challenges in experiment automation. Despite the drawbacks, it has been shown that flow optimization and control for fluid dynamic systems using machine learning algorithms can be applied in experimental settings[@Strom2017,@Martin2018,@Ramananarivo2019].
 
